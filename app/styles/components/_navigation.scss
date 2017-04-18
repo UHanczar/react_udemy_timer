@@ -1,0 +1,10 @@
+.top-bar {
+  background-color: $nav-background;
+  & ul {
+    @extend .top-bar;
+
+    & li:first-child {
+      color: $nav-text-color;
+    }
+  }
+}
