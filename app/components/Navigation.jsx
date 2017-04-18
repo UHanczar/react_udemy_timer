@@ -17,7 +17,7 @@ const Navigation = () => {
       </div>
       <div className='top-bar-right'>
         <ul className='menu'>
-          <li className='menu-text'><span>See code on <a href='#'>Github</a></span></li>
+          <li className='menu-text'><span>See code on <a href='https://github.com/UHanczar/react_udemy_timer' target='_blank' rel='noopener noreferrer'>Github</a></span></li>
         </ul>
       </div>
     </div>
