@@ -1,2 +1,4 @@
 /node_modules/
 .git/
+./public/bundle.js
+yarn-error.log

@@ -8,7 +8,10 @@ export default {
     path.resolve(__dirname, './app/App.jsx')
   ],
   externals: {
-    jquery: 'jQuery'
+    jquery: 'jQuery',
+    'cheerio': 'window',
+    'react/lib/ExecutionEnvironment': true,
+    'react/lib/ReactContext': true,
   },
   // ProvidePlugin loading nessesasy modules when they are required
   plugins: [
@@ -22,7 +25,9 @@ export default {
     filename: 'bundle.js'
   },
   resolve: {
-    alias: {},
+    alias: {
+      jQuery: path.resolve(__dirname, 'node_modules/jquery/dist/jquery.min.js')
+    },
     extensions: ['.js', '.jsx']
   },
   module: {
