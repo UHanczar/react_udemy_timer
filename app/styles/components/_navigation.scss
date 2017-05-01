@@ -1,6 +1,6 @@
 .top-bar {
   background-color: $nav-background;
-  & ul .menu {
+  & ul.menu {
     @extend .top-bar;
 
     & li:first-child {
