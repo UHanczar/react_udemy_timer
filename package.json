@@ -11,7 +11,7 @@
     "server": "npm-run-all --parallel start watch",
     "babel": "./node_modules/.bin/babel-node --presets es2015",
     "test": "yarn run babel -- ./node_modules/karma/bin/karma start",
-    "protest": "mocha --reporter progress --require app/tests/helpers/env.helper.js app/tests/**/*.test.jsx"
+    "protest": "mocha --require app/tests/helpers/env.helper.js app/tests/**/*.test.jsx --timeout 5000"
   },
   "author": "Uladzimir <u.hanczar@gmail.com>",
   "license": "MIT",
