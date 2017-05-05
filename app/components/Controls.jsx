@@ -5,6 +5,11 @@ const Controls = React.createClass({
     countdownStatus: React.PropTypes.string.isRequired,
     onStatusChange: React.PropTypes.func.isRequired
   },
+
+  // componentWillReceiveProps(newProps) {
+  //   console.log('component will receive props', newProps.countdownStatus);
+  // },
+
   onStatusChange(newStatus) {
     // or onstead of return arrow function here we can write in render
     // onClick={() => this.onStatusChange('stated')
@@ -18,7 +23,7 @@ const Controls = React.createClass({
       if (countdownStatus === 'started') {
         return <button  className='button secondary' onClick={this.onStatusChange('paused')}>Pause</button>
       } else if (countdownStatus === 'paused') {
-        return <button className='button primary' onClick={this.onStatusChange('stated')}>Start</button>
+        return <button className='button primary' onClick={this.onStatusChange('started')}>Start</button>
       }
     };
 
