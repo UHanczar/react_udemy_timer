@@ -8,7 +8,7 @@ const Clock = React.createClass({
   // getDefaultProps() {
   //   return {
   //     totalSeconds: 0
-  //   }
+  //   };
   // },
 
   formatSeconds(totalSeconds) {
@@ -28,7 +28,7 @@ const Clock = React.createClass({
 
   render() {
     const { totalSeconds } = this.props;
-    
+
     return (
       <div className='clock'>
         <span className='clock-text'>
