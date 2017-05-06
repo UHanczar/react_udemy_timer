@@ -1,32 +1,35 @@
 import React from 'react';
 
 import Clock from './Clock';
-import TimerControls from './TimerControls';
+// we can import TimerControls file either
+// in this case in render 'countdownStatus' in TimerControls
+// should be changed on 'timerStatus'
+import TimerControls from './Controls';
 
 const Timer = React.createClass({
   getInitialState() {
     return {
       count: 0,
-      countdownStatus: 'stopped'
+      timerStatus: 'stopped'
     };
   },
 
   componentWillMount() {
-    console.log(this.state.countdownStatus);
+    console.log(this.state.timerStatus);
   },
 
   componentDidUpdate(prevProps, prevState) {
-    console.log(this.state.countdownStatus);
-    if(this.state.countdownStatus !== prevState.countdownStatus) {
-      switch (this.state.countdownStatus) {
+    console.log(this.state.timerStatus);
+    if(this.state.timerStatus !== prevState.timerStatus) {
+      switch (this.state.timerStatus) {
         case 'started':
-          this.startTimer();
+          this.handleStart();
           break;
           case 'stopped':
             this.setState({ count: 0 });
           case 'paused':
-            clearInterval(this.timer);
-            this.timer = undefined;
+            clearInterval(this.start);
+            this.start = undefined;
             break;
       }
     }
@@ -38,34 +41,34 @@ const Timer = React.createClass({
     this.timer = undefined;
   },
 
-  startTimer() {
-    this.timer = setInterval(() => {
+  handleStart() {
+    this.start = setInterval(() => {
       let newCount = this.state.count + 1;
       this.setState({
         count: newCount
       });
 
-      if(newCount > 20) {
+      if(newCount > 6001) {
         this.setState({
-          countdownStatus: 'stopped'
+          timerStatus: 'stopped'
         });
       }
     }, 1000);
   },
 
-  handleStatusChandge(newStatus) {
+  handleStatusChandge(newTimerStatus) {
     this.setState({
-      countdownStatus: newStatus
+      timerStatus: newTimerStatus
     });
   },
 
   render: function() {
-    const { count, countdownStatus } = this.state;
+    const { count, timerStatus } = this.state;
     return (
       <div>
         <h1 className='page-title'>Timer App</h1>
         <Clock totalSeconds={count} />
-        <TimerControls countdownStatus={countdownStatus} onStatusChange={this.handleStatusChandge} />
+        <TimerControls countdownStatus={timerStatus} onStatusChange={this.handleStatusChandge} />
       </div>
     );
   }
