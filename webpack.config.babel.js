@@ -18,7 +18,7 @@ export default {
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery'
-    })
+    }),
   ],
   output: {
     path: path.resolve(__dirname, 'public'),

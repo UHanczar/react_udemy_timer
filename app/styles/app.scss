@@ -1,4 +1,12 @@
 @import './base/variables';
+
+// Foundation styles
+// @import 'base/foundation-settings';
+// @import 'foundation';
+@import '~foundation-sites/scss/foundation';
+@include foundation-everything;
+
+// Components styles
 @import './components/navigation';
 @import './components/clock';
 @import './components/controls';
